@@ -342,7 +342,7 @@ if __name__ == '__main__':
     would rename a file like: start_of_file1234_Take_This.mp3
                  into: 01-Take_That.mp3
 
-    $ rename.py -s start_of_file -k 5 -e '/This/That/' -n -x mp3 -F
+    $ rename.py -s start_of_file -k 5 -e 'This/That' -n -x mp3 -F
     would do the same
  '''
 
