@@ -8,7 +8,7 @@ import os
 import sys
 import re
 
-Version = "1.4.2"
+Version = "1.4.3"
 
 # To print colored text on term
 RED   = ''
@@ -149,10 +149,10 @@ def substitute(filename, pattern, replace):
     if pattern[-1] == 'i':
         flags = re.IGNORECASE
     else:
-        flags = None
+        flags = 0
     try:
         spb = pattern.split('/')
-        return re.sub(spb[1], spb[2], filename, flags=flags)
+        return re.sub(spb[0], spb[1], filename, flags=flags)
     except:
         pass
     return re.sub(pattern, replace, filename)
@@ -354,7 +354,7 @@ if __name__ == '__main__':
     parser.add_argument('-c', '--contains', help='check for string in filename; works with -r')
     parser.add_argument('-d', '--delete', help='delete string in filename')
     parser.add_argument('-e', '--expression', help='pattern with regex')
-    parser.add_argument('-r', '--replace', help='replace string; works with -c and -p', default='')
+    parser.add_argument('-r', '--replace', help='replace string; works with -c and -e', default='')
     parser.add_argument('-s', '--start', help='delete string from beginning of filename')
     parser.add_argument('-z', '--ztrip', help='delete n chars from end of filename')
     parser.add_argument('-k', '--skip', help='skip n char from start of filename')
