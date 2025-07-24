@@ -146,7 +146,7 @@ def add_string(filename, string, start=True):
 
 def substitute(filename, pattern, replace):
     if not pattern: return filename
-    if pattern[-1] == 'i':
+    if pattern[-2:] == '/i':
         flags = re.IGNORECASE
     else:
         flags = 0
@@ -343,6 +343,7 @@ if __name__ == '__main__':
                  into: 01-Take_That.mp3
 
     $ rename.py -s start_of_file -k 5 -e 'This/That' -n -x mp3 -F
+    $ rename.py -s start_of_file -k 5 -e 'this/That/i' -n -x mp3 -F
     would do the same
  '''
 
